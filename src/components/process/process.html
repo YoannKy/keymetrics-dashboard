@@ -1,0 +1,29 @@
+<v-container
+  fluid
+  grid-list-lg
+>
+  <v-layout>
+      <v-flex xs12 sm6>
+        <v-card class="text-xs-center">
+          <memoryProcessChart v-if="hasBeenInit" :options="treemapOptions"></memoryProcessChart>
+          <v-progress-circular
+          v-if="!hasBeenInit"
+          :size="100"
+          color="primary"
+          indeterminate
+      ></v-progress-circular>
+        </v-card>
+      </v-flex>
+      <v-flex xs12 sm6>
+        <v-card class="text-xs-center">
+          <processStateChart v-if="hasBeenInit" :options="axesAndColumns"></processStateChart>
+          <v-progress-circular
+          v-if="!hasBeenInit"
+          :size="100"
+          color="primary"
+          indeterminate
+      ></v-progress-circular>
+        </v-card>
+      </v-flex>
+  </v-layout>
+</v-container>

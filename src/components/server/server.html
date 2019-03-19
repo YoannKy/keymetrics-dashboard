@@ -1,0 +1,62 @@
+<div>
+  <v-container
+    fluid
+    grid-list-lg>
+    <v-layout>
+      <v-flex xs12 sm12>
+        <v-card>
+          <v-card-title primary-title v-if="hasBeenInit">
+            <div>
+               <h3 class="headline mb-0">Server information:</h3>
+               <div> cpu core  number: {{ spec.cpu.number }}  </div>
+               <div> cpu info: {{ spec.cpu.info }}  </div>
+               <div> total memory: {{ spec.totalMemory / gigabyte   }} Gb </div>
+            </div>
+          </v-card-title>
+          <div class="text-xs-center">
+            <v-progress-circular
+              v-if="!hasBeenInit"
+              :size="100"
+              color="primary"
+              indeterminate>
+            </v-progress-circular>
+          </div>
+        </v-card>
+      </v-flex>
+    </v-layout>
+  </v-container>
+  <v-container
+  fluid
+  grid-list-lg>
+    <v-layout>
+      <v-flex xs12 sm12>
+        <v-card class="text-xs-center">
+          <memoryComsuptionChart v-if="hasBeenInit" :options="memoryComsuption"></memoryComsuptionChart>
+          <v-progress-circular
+          v-if="!hasBeenInit"
+          :size="100"
+          color="primary"
+          indeterminate
+          ></v-progress-circular>
+        </v-card>
+      </v-flex>
+    </v-layout>
+  </v-container>
+  <v-container
+    fluid
+    grid-list-lg>
+    <v-layout>
+      <v-flex xs12 sm12>
+        <v-card class="text-xs-center">
+            <averageLoadChartChart v-if="hasBeenInit" :options="averageLoad"></averageLoadChartChart>
+            <v-progress-circular
+            v-if="!hasBeenInit"
+            :size="100"
+            color="primary"
+            indeterminate
+        ></v-progress-circular>
+        </v-card>
+      </v-flex>
+    </v-layout>
+    </v-container>
+</div>
