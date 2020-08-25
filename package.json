@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@pm2/js-api": "^0.5.53",
-    "highcharts": "^7.0.3",
+    "highcharts": "^7.2.2",
     "highcharts-vue": "^1.2.0",
     "rxjs": "^6.4.0",
     "vue": "^2.6.9",
